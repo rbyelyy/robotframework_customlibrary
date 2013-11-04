@@ -1,0 +1,22 @@
+*** Settings ***
+Library           Selenium2Library
+Library           OperatingSystem
+Resource          resource.txt
+Library           MyLibrary/MyLibrary.py    10
+
+*** Variables ***
+${MESSAGE}        %{USER}
+@{t}              a    b    c    d
+
+*** Test Cases ***
+custom_lib
+    [Documentation]    Test case which is using custom keywords from custom library
+    ...
+    ...    Path to project: //home/username/Test.txt
+    ...    Path to resources: //home/username/resources.txt
+    ...    Path to custom library://home/username/MyLibrary
+    ...    Path to python libs:/usr/local/lib/python2.7/dist-packages
+    Keyword 1
+    ${a}=    Keyword 2    10
+    Log    ${a}
+    Keyword 3    @{t}

@@ -1,0 +1,4 @@
+*** Keywords ***
+Print Message
+    [Arguments]    ${x}
+    Log    ${x}
